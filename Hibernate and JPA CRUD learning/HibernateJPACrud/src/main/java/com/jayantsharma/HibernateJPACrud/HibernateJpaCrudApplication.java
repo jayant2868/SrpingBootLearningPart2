@@ -29,8 +29,21 @@ public class HibernateJpaCrudApplication {
 
 			//getAllStudents(studentDAO);
 
-			getAllStudentByLastName(studentDAO);
+			// getAllStudentByLastName(studentDAO);
+
+			updateStudent(studentDAO);
 		};
+	}
+	private void updateStudent(StudentDAO studentDAO) {
+
+		// Get the student based on the primary key
+		Student student = studentDAO.findById(1);
+		// change the first name to "Karan"
+		student.setFirstName("Karan");
+		// Update the student
+		studentDAO.update(student);
+		// display the updated student record.
+		System.out.println(studentDAO.findById(1));
 	}
 	private void getAllStudentByLastName(StudentDAO studentDAO) {
 		
